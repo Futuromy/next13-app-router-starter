@@ -25,7 +25,7 @@ const IndexPage = async () => {
             <Link
               href="/posts/[id]"
               as={`/posts/${post.id}`}
-              className="font-bold text-emerald-700 hover:text-opacity-60"
+              className="font-bold text-indigo-700 hover:text-opacity-60"
             >
               {post.title}
             </Link>

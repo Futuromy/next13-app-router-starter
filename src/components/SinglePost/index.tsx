@@ -1,17 +1,22 @@
-import { Post } from '../page';
+import { Post } from 'src/app/posts/page';
+import React from 'react';
 
-async function GetPostById(id: number) {
+interface Props {
+  postId: number;
+}
+
+async function getPostById(id: number) {
   const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
   const post = await res.json();
   return post as Post;
 }
 
-const SinglePost = async ({ params }: any) => {
-  const post = await GetPostById(params.id);
+const SinglePost = async ({ postId }: Props) => {
+  const post = await getPostById(postId);
 
   return (
     <>
-      <title>Post {post.id}</title>
+      <title>{`Post ${post.id}`}</title>
       <div>
         <h1 className="text-xl font-bold ">{post.title}</h1>
         <p>{post.body}</p>
