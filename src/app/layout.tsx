@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-head-element */
 import Link from 'next/link';
 import 'styles/globals.css';
 

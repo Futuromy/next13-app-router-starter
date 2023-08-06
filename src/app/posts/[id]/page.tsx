@@ -1,7 +1,9 @@
+import {type NextPage } from 'next';
 import SinglePost from 'src/components/SinglePost';
 
-const SinglePostPage = ({ params }: any) => {
-  return <SinglePost postId={params.id} />;
+
+const SinglePostPage: NextPage<{ params: { id: number } }> = (props) => {
+  return <SinglePost postId={props.params.id} />;
 };
 
 export default SinglePostPage;

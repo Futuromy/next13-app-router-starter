@@ -10,8 +10,7 @@ async function getPosts() {
   const res = await fetch('https://jsonplaceholder.typicode.com/posts', {
     cache: 'no-store', // This is the important part to disable caching
   });
-  const posts = await res.json();
-  return posts as Post[];
+  return await res.json() as Post[];
 }
 
 const IndexPage = async () => {
