@@ -1,4 +1,11 @@
 import Link from "next/link";
+import Balancer from "react-wrap-balancer";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "src/components/ui/card";
 
 export interface Post {
   id: number;
@@ -17,22 +24,28 @@ const IndexPage = async () => {
   const posts = await getPosts();
 
   return (
-    <ul>
+    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
       {posts.map((post) => (
-        <li key={post.id} className="my-5">
-          <div className="flex flex-col gap-2 rounded-lg bg-slate-300 p-4">
-            <Link
-              href="/posts/[id]"
-              as={`/posts/${post.id}`}
-              className="font-bold text-indigo-700 hover:text-opacity-60"
-            >
-              {post.title}
-            </Link>
-            {post.body}
-          </div>
-        </li>
+        <div key={post.id} className="cols-span-1">
+          <Link
+            href="/posts/[id]"
+            as={`/posts/${post.id}`}
+            className="hover:opacity-60"
+          >
+            <Card className="h-full">
+              <CardHeader>
+                <CardTitle>
+                  <Balancer>{post.title}</Balancer>
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="font-medium">{post.body}</p>
+              </CardContent>
+            </Card>
+          </Link>
+        </div>
       ))}
-    </ul>
+    </div>
   );
 };
 export default IndexPage;

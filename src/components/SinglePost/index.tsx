@@ -1,5 +1,12 @@
 import { type Post } from "src/app/posts/page";
 import React from "react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "src/components/ui/card";
 
 interface Props {
   postId: number;
@@ -16,10 +23,14 @@ const SinglePost = async ({ postId }: Props) => {
   return (
     <>
       <title>{`Post ${post.id}`}</title>
-      <div>
-        <h1 className="text-xl font-bold ">{post.title}</h1>
-        <p>{post.body}</p>
-      </div>
+      <Card>
+        <CardHeader>
+          <CardTitle>{post.title}</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p className="max-w-4xl">{post.body}</p>
+        </CardContent>
+      </Card>
     </>
   );
 };
