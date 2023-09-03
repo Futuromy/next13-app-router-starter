@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from "next/link";
 
 export interface Post {
   id: number;
@@ -7,10 +7,10 @@ export interface Post {
 }
 
 async function getPosts() {
-  const res = await fetch('https://jsonplaceholder.typicode.com/posts', {
-    cache: 'no-store', // This is the important part to disable caching
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
+    cache: "no-store", // This is the important part to disable caching
   });
-  return await res.json() as Post[];
+  return (await res.json()) as Post[];
 }
 
 const IndexPage = async () => {
@@ -20,7 +20,7 @@ const IndexPage = async () => {
     <ul>
       {posts.map((post) => (
         <li key={post.id} className="my-5">
-          <div className="flex flex-col gap-2 p-4 rounded-lg bg-slate-300">
+          <div className="flex flex-col gap-2 rounded-lg bg-slate-300 p-4">
             <Link
               href="/posts/[id]"
               as={`/posts/${post.id}`}

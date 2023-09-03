@@ -1,5 +1,5 @@
-import { type Post } from 'src/app/posts/page';
-import React from 'react';
+import { type Post } from "src/app/posts/page";
+import React from "react";
 
 interface Props {
   postId: number;
@@ -7,7 +7,7 @@ interface Props {
 
 async function getPostById(id: number) {
   const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
-  return await res.json() as Post;
+  return (await res.json()) as Post;
 }
 
 const SinglePost = async ({ postId }: Props) => {

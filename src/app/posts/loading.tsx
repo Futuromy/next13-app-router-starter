@@ -1,4 +1,4 @@
-import { type FunctionComponent } from 'react';
+import { type FunctionComponent } from "react";
 
 const LoadingPost: FunctionComponent = () => {
   return <h1>Loading...</h1>;
