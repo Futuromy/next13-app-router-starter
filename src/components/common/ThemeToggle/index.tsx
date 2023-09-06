@@ -10,7 +10,7 @@ const ThemeToggle = () => {
     <button
       aria-label="Toggle Dark Mode"
       type="button"
-      className="rounded-full border-[0.5px] border-border bg-accent p-2 transition duration-150 ease-in-out hover:bg-accent/60 focus:outline-none"
+      className="h-10 w-10 rounded-full border-[0.5px] border-border bg-accent p-2 transition duration-150 ease-in-out hover:bg-accent/60 focus:outline-none"
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
     >
       {theme === "dark" ? (

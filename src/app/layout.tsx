@@ -1,12 +1,7 @@
-import dynamic from "next/dynamic";
-import Link from "next/link";
-import { Button } from "src/components/ui/button";
+import Header from "src/components/themes/basic/Header";
+import { Separator } from "src/components/ui/separator";
 import "src/styles/globals.css";
 import { ThemeProvider } from "src/theme/ThemeProvider";
-
-const ThemeToggle = dynamic(() => import("src/components/ThemeToggle"), {
-  ssr: false,
-});
 
 export default function RootLayout({
   children,
@@ -16,24 +11,26 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <title>Next 13 - TailwindCSS Starter Template</title>
+        <title>Blog Site Template</title>
       </head>
       <body>
         <ThemeProvider attribute="class" defaultTheme="dark">
-          <div className="container mx-auto flex flex-col gap-4">
-            <header className="flex flex-row items-center justify-between">
-              <div className="flex flex-row gap-2 py-6 text-xl font-bold">
-                <Button asChild>
-                  <Link href="/">Home</Link>
-                </Button>
-                <Button asChild>
-                  <Link href="/posts">Posts</Link>
-                </Button>
-              </div>
-              <ThemeToggle />
-            </header>
-            <main>{children}</main>
+          <Header />
+          <div className="container my-6">
+            <Separator />
           </div>
+          <main className="container">{children}</main>
+          <footer className="container my-6">
+            <Separator />
+            <div className="flex flex-row items-center justify-between py-6">
+              <div className="flex flex-row gap-2">
+                <span className="text-3xl font-medium">Logo</span>
+              </div>
+              <div className="flex flex-row items-center justify-start gap-2">
+                <span className="text-foreground">© 2023</span>
+              </div>
+            </div>
+          </footer>
         </ThemeProvider>
       </body>
     </html>
